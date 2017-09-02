@@ -87,6 +87,7 @@ Each Campground has:
 ##Refactor The Routes
 * Use Express router to reoragnize all routes
 
+<<<<<<< HEAD
 ##Users + Comments
 * Associate users and comments
 * Save author's name to a comment automatically
@@ -145,6 +146,12 @@ Comment Destroy Route:    /campgrounds/:id/comments/:comment_id
 * Refactor middleware
 * change styling in show template - comment delete/update
 * UPDATE/DELETE CAMPGROUND
+=======
+
+
+
+
+>>>>>>> 258a1dcff736f2bb4dc90eba2b696f7121b2e435
 
 
 RESTFUL ROUTES

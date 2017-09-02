@@ -3,11 +3,12 @@
 }
 
 .thumbnail {
-    padding: 0;
+    padding: 0.5em;
 }
 
 .thumbnail .caption-full {
     padding: 9px;
+
 }
 
 #delete-form {

@@ -1,90 +1,10 @@
-<% include ./partials/header %> 
-<style>
-    body {
-  background:
-          radial-gradient(circle at 0% 50%, rgba(96,   16, 48, 0) 9px, #613 10px, rgba(96, 16,     48, 0) 11px) 0px 10px,
-          radial-gradient(at 100% 100%,     rgba(96,   16, 48, 0) 9px, #613 10px, rgba(96, 16,     48, 0) 11px),
-          #8a3;
-  background-size: 20px 20px;
-  font-family: futura;
-}
+<% include ./partials/header %>
 
-form {
-  width: 350px;
-  height: 400px;
-  background: white;
-  margin: auto;
-  margin-top: 50px;
-  border: 1px solid #797E93;
-  border-radius: 15px;
-  box-shadow: 1px 1px 2px 1px #797E93;
-}
-
-h1 {
-  color: #4C7134;
-  text-align: center;
-  margin-top: 0;
-  margin-top: 5px;
-}
-
-label {
-  text-transform: uppercase;
-  font-size: 14px;
-  color: gray;
-  display: block;
-  margin-bottom: 5px;
-  margin-left: 25px;
-}
-
-input {
-  display: block;
-  margin-left: 25px;
-  margin-bottom: 20px;
-  padding: 7px;
-}
-
-.submit {
-  width: 70px;
-  height: 40px;
-  background-color: #4C7134;
-  border: 1px solid #4C7134;
-  border-radius: 5px;
-  color: white;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-p {
-  color: gray;
-  margin-left: 25px;
-  font-size: 12px;
-}
-
-a {
-  color: purple;
-  text-decoration: none;
-}
-
-a:hover {
-  color: green;
-}
-</style>
-
-
-
+<h1>Sign Up!</h1>
 <form action="/register" method="post">
-
-    <h1>create your account</h1>
-    <label for="username">Username</label>
-    <input size="50" type="text"       name="username" />
-
-
-    <label for"password">Password</label>
-    <input size="50" type="password" name="password" />
-
-    <input class="submit" type="submit" value="Submit" />
-
+    <input type="text" name="username" placeholder="username">
+    <input type="password" name="password" placeholder="password">
+    <button>Sign Up</button>
 </form>
 
-
-<% include ./partials/footer %> 
+<% include ./partials/footer %>
