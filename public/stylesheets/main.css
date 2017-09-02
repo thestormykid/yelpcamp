@@ -1,3 +1,20 @@
+body {
+	background-color: rgba(233, 220, 234, 0.7);
+}
+.nav_bar {
+	background-color: #9c18bd;
+}
+
+a:hover { color:#FF00FF }
+
+a {
+	color: #fff;
+}
+
+.btn-success {
+	background-color: #3eea3e;
+}
+
 .thumbnail img {
     width: 100%;
 }
@@ -8,9 +25,47 @@
 
 .thumbnail .caption-full {
     padding: 9px;
-
 }
 
 #delete-form {
     display: inline;
+}
+
+.login_heading {
+	text-align: center;
+}
+
+.form-control {
+	margin: 0.2em;
+}
+
+.login_body {
+	padding: 2em;
+	position: relative;
+}
+.icon {
+	margin-left: 1em;
+}
+.facebook_button {
+	color: white;
+	background-color: #3b5998;
+	border-radius: 2em;
+}
+.google_button {
+	color: white;
+	background-color: #DD4B39;
+	border-radius: 2em;
+}
+.facebook_icon_div {
+	background-color: #3b5998;
+}
+.margin {
+	margin: 0.1em;
+}
+
+.login_content {
+	border-color: #9c18bd;
+	width: 25em;
+	height: 30em;
+	margin-top: 2em;
 }

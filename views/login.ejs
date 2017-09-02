@@ -1,10 +1,49 @@
 <% include ./partials/header %>
+	<div class="thumbnail container login_content">
+		<div class="login_heading">
+			<h3>Sign in to View Camping Sites</h3>
+		</div>
 
-<h1>Login!</h1>
-<form action="/login" method="POST">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <input type="submit" value="Login!">
-</form>
+		<div class="login_body">
+			<form action="/login" method="POST" class="form-group">
+			    <input type="text" name="username" placeholder="username" class="form-control">
+			    <input type="password" name="password" placeholder="password" class="form-control">
+			    <input type="submit" value="Login!" class="form-control btn btn-success">
+				<a href="" style="color:blue">Forgot password?</a>
+			</form>
+			<div class="row">
+				<div class="col-xs-12">
+					<button class="form-control facebook_button">
+						<div class="row">
+							<div class="col-xs-1">
+								<i class="fa fa-facebook fa-lg icon" aria-hidden="true"></i>
+							</div>
+							<div class="col-xs-10">
+								Sign In with Facebook Account
+							</div>
+						</div>
+					</button>
+				</div>
+				<div class="col-xs-12">
+					<button class="form-control google_button">
+						<div class="row">
+							<div class="col-xs-1">
+								<i class="fa fa-google fa-lg icon" aria-hidden="true"></i>
+							</div>
+							<div class="col-xs-10">
+								Sign In with Google Account
+							</div>
+						</div>
+
+					</button>
+				</div>			</div>
+		</div>
+
+		<div class="login_body">
+			<div class="h5">
+				Don't have account? <a href="/register" style="color: blue"> Register to Yelpcamp</a>
+			</div>
+		</div>
+	</div>
 
 <% include ./partials/footer %>
