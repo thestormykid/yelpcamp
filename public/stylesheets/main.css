@@ -20,6 +20,9 @@ a {
 .thumbnail img {
     width: 100%;
 }
+.image_groups{
+    box-shadow: 9px 11px 6px black;
+}
 
 .thumbnail {
     padding: 0.5em;
@@ -45,9 +48,7 @@ a {
 	padding: 2em;
 	position: relative;
 }
-.icon {
-	margin-left: 1em;
-}
+
 .facebook_button {
 	color: white;
 	background-color: #3b5998;

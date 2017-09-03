@@ -53,6 +53,15 @@ router.get('/login/facebook/return',
 router.get('/login/facebook',passport.authenticate('facebook',{ scope: ['email'] }));
 
 
+router.get('/login/google',passport.authenticate('google',{ scope: ['profile'] }));
+
+
+router.get('/google/auth/callback',
+  passport.authenticate('google', { failureRedirect: '/login' }), function(req, res) {
+    res.redirect('/campgrounds');
+  });
+
+
 
 //middleware
 function isLoggedIn(req, res, next) {
