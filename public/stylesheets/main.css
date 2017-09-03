@@ -2,10 +2,12 @@ body {
 	background-color: rgba(233, 220, 234, 0.7);
 }
 .nav_bar {
-	background-color: #9c18bd;
+	background-color: #30d4cc;
 }
 
-a:hover { color:#FF00FF }
+a:hover {
+	color:#fff;
+}
 
 a {
 	color: #fff;
@@ -50,6 +52,10 @@ a {
 	color: white;
 	background-color: #3b5998;
 	border-radius: 2em;
+}
+.jumbotron {
+	background-color: white;
+	box-shadow: 0 0 1em #9c18bd;
 }
 .google_button {
 	color: white;

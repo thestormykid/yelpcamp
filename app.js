@@ -4,6 +4,7 @@ var express     = require("express"),
     mongoose    = require("mongoose"),
     passport    = require("passport"),
     LocalStrategy = require("passport-local"),
+    FacebookStrategy = require('passport-facebook');
     methodOverride = require("method-override"),
 
     Campground  = require("./models/campground"),
@@ -32,17 +33,67 @@ app.use(flash())
 
 // PASSPORT CONFIGURATION
 app.use(require("express-session")({
-    secret: "Once again Rusty wins cutest dog!",
-    resave: false,
-    saveUninitialized: false
+    secret: "This is coding",
+    resave: true,
+    saveUninitialized: true
 }));
 
 
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+
+app.use(require('morgan')('combined'));
+app.use(require('cookie-parser')());
+app.use(require('body-parser').urlencoded({ extended: true }));
+app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+
+
+passport.use(new FacebookStrategy ({
+    clientID: '640275096164486',
+    clientSecret: '5be315a5d6c1f9dd4d7463df4b78536e',
+    callbackURL: 'http://localhost:8000/login/facebook/return'
+  }, function(accessToken, refreshToken, profile, cb) {
+        process.nextTick(function() {
+                    console.log(profile)
+            User.findOne({ username: profile.displayName }).exec(function(err, UserFromFacebook) {
+                if (err) {
+                    return cb(err);
+                }
+
+                if (UserFromFacebook) {
+                    return cb(null, UserFromFacebook);
+                } else  {
+                    var NewUser =  new User();
+                    NewUser.name = profile.displayName;
+                    NewUser.username = profile.displayName;
+                    NewUser.token = accessToken;
+                    NewUser.save(function(err) {
+                        if (err) {
+                            console.log(err);
+                        }
+                    })
+                    return cb(null, NewUser);
+                }
+            })
+        })
+  }));
+
+
+// passport.serializeUser(User.serializeUser());
+passport.serializeUser(function(user, cb) {
+    // console.log(User);
+  cb(null, user._id);
+});
+
+passport.deserializeUser(function(id,cb) {
+    // console.log(User);
+    User.findById(id, function(err, user) {
+        console.log(user);
+        cb(err, user);
+    })
+});
+
 
 app.post("/upload",upload.any(),function(req,res,next){
     var name = req.body.name;
@@ -64,8 +115,9 @@ app.post("/upload",upload.any(),function(req,res,next){
         }
     });
 });
-app.use(function(req, res, next){
+app.use(function(req, res, next) {
    res.locals.currentUser = req.user;
+   console.log(req.user);
    res.locals.error = req.flash("error");
    res.locals.success = req.flash("success");
    next();
@@ -76,6 +128,6 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-app.listen(3000, process.env.IP, function(){
+app.listen(8000, process.env.IP, function(){
    console.log("The YelpCamp Server Has Started!");
 });

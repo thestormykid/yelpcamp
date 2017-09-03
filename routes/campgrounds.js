@@ -13,7 +13,7 @@ router.get("/", function(req, res) {
          if (err) {
              console.log(err);
          }
-         console.log(allCampgrounds);
+
          res.render("campgrounds/index",{campgrounds:allCampgrounds})
      });
 });
@@ -76,6 +76,9 @@ router.get("/:id", function(req, res) {
 // EDIT CAMPGROUND ROUTE
 router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req, res) {
     Campground.findById(req.params.id, function(err, foundCampground) {
+        console.log('**************')
+        console.log(foundCampground);
+
         res.render("campgrounds/edit", {campground: foundCampground});
     });
 });

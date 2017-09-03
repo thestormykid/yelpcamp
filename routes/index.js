@@ -47,6 +47,13 @@ router.get("/logout", function(req, res) {
    res.redirect("/campgrounds");
 });
 
+router.get('/login/facebook/return',
+   passport.authenticate('facebook', { failureRedirect: '/login', successRedirect: '/campgrounds' }));
+
+router.get('/login/facebook',passport.authenticate('facebook',{ scope: ['email'] }));
+
+
+
 //middleware
 function isLoggedIn(req, res, next) {
     if(req.isAuthenticated()) {
