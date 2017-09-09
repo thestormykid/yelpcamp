@@ -1,10 +1,24 @@
 <% include ./partials/header %>
+	<div class="thumbnail container login_content">
+		<div class="login_heading">
+			<h3>Join us</h3>
+		</div>
 
-<h1>Sign Up!</h1>
-<form action="/register" method="post">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <button>Sign Up</button>
-</form>
+		<div class="login_body">
+			<form action="/register" method="POST" class="form-group">
+			    <label><strong> Enter Email </strong></label>
+				<input type="text" name="email" placeholder="Enter your E-mail" class="form-control">
 
+				<label><strong>Enter your username</strong></label>
+			    <input type="text" name="username" placeholder="username" class="form-control">
+
+				<label><strong> Enter password</strong></label>
+			    <input type="password" name="password" placeholder="password" class="form-control">
+
+				<label><strong> Confirm password </strong></label>
+			    <input type="password" name="confirm password" placeholder="password" class="form-control">
+			    <input type="submit" value="Register" class="form-control btn btn-success">
+			</form>
+		</div>
+	</div>
 <% include ./partials/footer %>

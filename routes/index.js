@@ -3,34 +3,21 @@ var router  = express.Router();
 var passport = require("passport");
 var User = require("../models/user");
 
+var routes = {
+  views: {
+    index: require("./views/index")
+  }
+}
+
 //root route
-router.get("/", function(req, res) {
-    res.render("landing");
-});
-
+router.get("/",  routes.views.index.landing);
 // show register form
-router.get("/register", function(req, res) {
-   res.render("register");
-});
-
+router.get("/register", routes.views.index.registerPage);
 //handle sign up logic
-router.post("/register", function(req, res) {
-    var newUser = new User({username: req.body.username});
-    User.register(newUser, req.body.password, function(err, user) {
-        if(err) {
-            console.log(err);
-            return res.render("register");
-        }
-        passport.authenticate("local")(req, res, function() {
-           res.redirect("/campgrounds");
-        });
-    });
-});
+router.post("/register", routes.views.index.registerUser);
 
 //show login form
-router.get("/login", function(req, res) {
-   res.render("login");
-});
+router.get("/login", routes.views.index.loginPage);
 
 //handling login logic
 router.post("/login", passport.authenticate("local",
@@ -41,11 +28,7 @@ router.post("/login", passport.authenticate("local",
 });
 
 // logout route
-router.get("/logout", function(req, res) {
-   req.logout();
-   req.flash("success" , "logged you out!!!")
-   res.redirect("/campgrounds");
-});
+router.get("/logout", routes.views.index.logout);
 
 router.get('/login/facebook/return',
    passport.authenticate('facebook', { failureRedirect: '/login', successRedirect: '/campgrounds' }));
@@ -59,16 +42,6 @@ router.get('/login/google',passport.authenticate('google',{ scope: ['profile'] }
 router.get('/google/auth/callback',
   passport.authenticate('google', { failureRedirect: '/login' }), function(req, res) {
     res.redirect('/campgrounds');
-  });
-
-
-
-//middleware
-function isLoggedIn(req, res, next) {
-    if(req.isAuthenticated()) {
-        return next();
-    }
-    res.redirect("/login");
-}
+});
 
 module.exports = router;
