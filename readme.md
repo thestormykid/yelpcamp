@@ -116,6 +116,7 @@ Each Campground has:
 * Add Update route
 
 Campground Edit Route: `/campgrounds/:id/edit`
+
 Comment Edit Route:   `/campgrounds/:id/comments/:comment_id/edit`
 
 ## Deleting Comments
@@ -123,6 +124,7 @@ Comment Edit Route:   `/campgrounds/:id/comments/:comment_id/edit`
 * Add Delete button
 
 Campground Destroy Route: `/campgrounds/:id`
+
 Comment Destroy Route:    `/campgrounds/:id/comments/:comment_id`
 
 ## Authorization Part 2: Comments
@@ -151,9 +153,13 @@ CREATE  `/dogs`      POST  Add new dog to DB
 SHOW    `/dogs/:id`  GET   Shows info about one dog
 
 INDEX   `/campgrounds`
+
 NEW     `/campgrounds/new`
+
 CREATE  `/campgrounds`
+
 SHOW    `/campgrounds/:id`
 
 NEW     `campgrounds/:id/comments/new`    GET
+
 CREATE  `campgrounds/:id/comments`      POST
