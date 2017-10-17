@@ -7,8 +7,6 @@ var express             = require("express"),
     FacebookStrategy    = require('passport-facebook'),
     GoogleStrategy      = require("passport-google-oauth20").Strategy,
     methodOverride      = require("method-override"),
-
-
     Campground  = require("./models/campground"),
     Comment     = require("./models/comment"),
     User        = require("./models/user"),
@@ -23,7 +21,6 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index")
 
-// mongoose.connect("mongodb://localhost/yelp_camp_v10");
 //mongoose.connect("mongodb://hanu:delhi123@ds143191.mlab.com:43191/first_project");
 mongoose.connect("mongodb://localhost/yelp_camp_v6");
 app.use(bodyParser.urlencoded({extended: true}));
