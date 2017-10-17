@@ -1,4 +1,4 @@
-# YelpCamp
+# YelpCamp(with added facebook authentication)
 
 ## Initial Setup
 * Add Landing Page
